@@ -12,10 +12,16 @@ models:
         data_type: text
         constraints:
           - type: not_null
+        description: >
+          UUID for each unique product on platform.
       - name: ZIPCODE
         tests:
           - not_null
         data_type: decimal
+        constraints:
+          - type: not_null
+        description: >
+          UUID for each unique product on platform.
       - name: COUNTRY
         tests:
           - not_null
