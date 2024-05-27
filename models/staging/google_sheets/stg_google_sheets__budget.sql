@@ -1,20 +1,18 @@
-
 with 
 
 source as (
 
-    select * from {{ source('sql_server_dbo', 'PRODUCTS') }}
+    select * from {{ source('google_sheets', 'budget') }}
 
 ),
 
 renamed as (
 
     select
+        _row,
+        quantity,
+        month,
         product_id,
-        price,
-        name,
-        inventory,
-        _fivetran_deleted,
         _fivetran_synced
 
     from source
