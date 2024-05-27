@@ -2,14 +2,39 @@ version: 2
 
 models:
   - name: stg_sql_server_dbo__ADDRESSES
+    config:
+      contract:
+        enforced: true
     columns:
       - name: ADDRESS_ID
+        tests:
+          - not_null
+        data_type: text
+        constraints:
+          - type: not_null
       - name: ZIPCODE
+        tests:
+          - not_null
+        data_type: decimal
       - name: COUNTRY
+        tests:
+          - not_null
+        data_type: text
       - name: ADDRESS
+        tests:
+          - not_null
+        data_type: text
       - name: STATE
+        tests:
+          - not_null
+        data_type: text
       - name: _FIVETRAN_DELETED
+        
+        data_type: boolean
       - name: _FIVETRAN_SYNCED
+        tests:
+          - not_null
+        data_type: timestamp_tz
 
   - name: stg_sql_server_dbo__ADDRESSES_2
     columns:
