@@ -257,3 +257,25 @@ models:
       - name: _fivetran_synced
         data_type: timestamp_tz
         description: ""
+  
+  - name: stg_sql_server_dbo__status_promo
+    description: ""
+    columns:
+      - name: status_description
+        data_type: varchar
+        description: ""
+      - name: id_status
+        data_type: varchar
+        description: ""
+  
+  - name: stg_sql_server_dbo__shipping_service
+    description: ""
+    columns:
+      - name: shipping_service_name
+        data_type: varchar
+        description: ""
+      - name: id_shipping_service
+        data_type: varchar
+        description: ""
+
+     
