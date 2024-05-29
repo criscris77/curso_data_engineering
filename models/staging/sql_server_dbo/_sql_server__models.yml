@@ -70,6 +70,10 @@ models:
       - name: order_id
         data_type: varchar
         description: ""
+        tests:
+          - relationships:
+                  to: ref('stg_sql_server_dbo__orders')
+                  field: order_id
 
       - name: _fivetran_deleted
         data_type: boolean
