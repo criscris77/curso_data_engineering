@@ -19,6 +19,7 @@ renamed as (
         end as id_shipping_service
 
     from source
+    where _fivetran_deleted is null
 
 )
 

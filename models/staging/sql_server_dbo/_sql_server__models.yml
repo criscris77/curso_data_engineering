@@ -7,7 +7,7 @@ models:
       - name: address_id
         data_type: varchar
         description: ""
-
+        
       - name: zipcode
         data_type: number
         description: ""
@@ -54,6 +54,10 @@ models:
       - name: product_id
         data_type: varchar
         description: ""
+        tests:
+          - relationships:
+                  to: ref('stg_sql_server_dbo__products')
+                  field: product_id
 
       - name: session_id
         data_type: varchar

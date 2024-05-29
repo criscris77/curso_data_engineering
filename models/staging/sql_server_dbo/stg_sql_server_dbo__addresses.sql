@@ -14,10 +14,10 @@ renamed as (
         country,
         address,
         state,
-        _fivetran_deleted,
         _fivetran_synced
 
     from source
+    where _fivetran_deleted is null
 
 )
 
