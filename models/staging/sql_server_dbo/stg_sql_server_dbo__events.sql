@@ -13,10 +13,16 @@ renamed as (
         page_url,
         event_type,
         user_id,
-        product_id,
+        case
+        when product_id ='' then md5('empty')
+        else product_id
+        end as product_id,
         session_id,
         created_at,
-        order_id,
+        case
+        when order_id ='' then md5('empty')
+        else order_id
+        end as order_id,
         _fivetran_deleted,
         _fivetran_synced
 

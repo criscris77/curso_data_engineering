@@ -12,24 +12,37 @@ sources:
           - name: address_id
             data_type: varchar
             description: ""
+            tests:
+              - unique
+              - not_null
           - name: zipcode
             data_type: number
             description: ""
+            tests:
+              - not_null
           - name: country
             data_type: varchar
             description: ""
+            tests:
+              - not_null
           - name: address
             data_type: varchar
             description: ""
+            tests:
+              - not_null
           - name: state
             data_type: varchar
             description: ""
+            tests:
+              - not_null
           - name: _fivetran_deleted
             data_type: boolean
             description: ""
           - name: _fivetran_synced
             data_type: timestamp_tz
             description: ""
+            tests:
+              - not_null
 
       - name: events
         description: ""
@@ -37,33 +50,52 @@ sources:
           - name: event_id
             data_type: varchar
             description: ""
+            tests:
+              - unique
+              - not_null
           - name: page_url
             data_type: varchar
             description: ""
+            tests:
+              - not_null
           - name: event_type
             data_type: varchar
             description: ""
+            tests:
+              - not_null
           - name: user_id
             data_type: varchar
             description: ""
+            tests:
+              - relationships:
+                  to: source('sql_server_dbo','users')
+                  field: user_id
           - name: product_id
             data_type: varchar
             description: ""
           - name: session_id
             data_type: varchar
             description: ""
+            tests:
+              - not_null
           - name: created_at
             data_type: timestamp_ntz
             description: ""
+            tests:
+              - not_null
           - name: order_id
             data_type: varchar
             description: ""
+            tests:
+              - not_null
           - name: _fivetran_deleted
             data_type: boolean
             description: ""
           - name: _fivetran_synced
             data_type: timestamp_tz
             description: ""
+            tests:
+              - not_null
 
       - name: orders
         description: ""

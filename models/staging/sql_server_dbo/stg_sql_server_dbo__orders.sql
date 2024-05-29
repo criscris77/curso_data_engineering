@@ -39,4 +39,26 @@ renamed as (
 
 )
 
-select * from renamed
+,
+added_row AS (
+    SELECT 
+        md5('empty') ,
+        'unknown',
+        null,
+        0,
+        null,
+        CURRENT_TIMESTAMP AS created_at,
+        null,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        CURRENT_TIMESTAMP AS _fivetran_synced
+)
+
+SELECT * FROM renamed
+UNION ALL
+SELECT * FROM added_row

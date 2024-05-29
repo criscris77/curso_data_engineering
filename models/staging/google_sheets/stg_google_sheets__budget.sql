@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        _row,
+        _row ,
         quantity,
         month,
         product_id,
