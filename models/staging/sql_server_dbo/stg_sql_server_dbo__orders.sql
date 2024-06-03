@@ -11,10 +11,6 @@ renamed as (
     select
         order_id,
         case
-            when shipping_service='' then 'unknown'
-            else shipping_service
-        end as name_shipping_service,
-        case
             when shipping_service='' then md5('unknown')
             else md5(shipping_service)
         end as shipping_service_id,
@@ -43,7 +39,6 @@ renamed as (
 added_row AS (
     SELECT 
         md5('empty') ,
-        'unknown',
         null,
         0,
         null,
