@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'curso_data_engineering'
 version: '1.0.0'
 config-version: 2
 
@@ -37,5 +37,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   curso_data_engineering:
-    sql_server:
+    staging:
       +materialized: table
+      +database: "ALUMNO14DEV_SILVER_DB"
+    marts: 
+      +materialized: view
+      +database: "ALUMNO14DEV_GOLD_DB"
