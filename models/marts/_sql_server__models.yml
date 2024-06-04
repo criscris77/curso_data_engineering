@@ -1,0 +1,270 @@
+version: 2
+
+models:
+  - name: dim_addresses
+    description: ""
+    columns:
+      - name: address_id
+        data_type: varchar
+        description: ""
+
+      - name: zipcode
+        data_type: number
+        description: ""
+
+      - name: country
+        data_type: varchar
+        description: ""
+
+      - name: address
+        data_type: varchar
+        description: ""
+
+      - name: state
+        data_type: varchar
+        description: ""
+
+      - name: _fivetran_synced
+        data_type: timestamp_tz
+        description: ""
+
+  - name: dim_event_types
+    description: ""
+    columns:
+      - name: event_type
+        data_type: varchar
+        description: ""
+
+      - name: id_event_type
+        data_type: varchar
+        description: ""
+
+  - name: fct_events
+    description: ""
+    columns:
+      - name: event_id
+        data_type: varchar
+        description: ""
+
+      - name: page_url
+        data_type: varchar
+        description: ""
+
+      - name: event_type
+        data_type: varchar
+        description: ""
+
+      - name: user_id
+        data_type: varchar
+        description: ""
+
+      - name: product_id
+        data_type: varchar
+        description: ""
+
+      - name: session_id
+        data_type: varchar
+        description: ""
+
+      - name: created_at
+        data_type: timestamp_ntz
+        description: ""
+
+      - name: order_id
+        data_type: varchar
+        description: ""
+
+      - name: _fivetran_deleted
+        data_type: boolean
+        description: ""
+
+      - name: _fivetran_synced
+        data_type: timestamp_tz
+        description: ""
+
+  - name: dim_products
+    description: ""
+    columns:
+      - name: product_id
+        data_type: varchar
+        description: ""
+
+      - name: price
+        data_type: float
+        description: ""
+
+      - name: name
+        data_type: varchar
+        description: ""
+
+      - name: inventory
+        data_type: number
+        description: ""
+
+      - name: _fivetran_deleted
+        data_type: boolean
+        description: ""
+
+      - name: _fivetran_synced
+        data_type: timestamp_tz
+        description: ""
+
+  - name: dim_promos
+    description: ""
+    columns:
+      - name: id_promocion
+        data_type: varchar
+        description: ""
+
+      - name: promo_name
+        data_type: varchar
+        description: ""
+
+      - name: discount_dollars
+        data_type: number
+        description: ""
+
+      - name: status
+        data_type: varchar
+        description: ""
+
+      - name: _fivetran_deleted
+        data_type: boolean
+        description: ""
+
+      - name: _fivetran_synced
+        data_type: timestamp_tz
+        description: ""
+
+  - name: dim_shippingService
+    description: ""
+    columns:
+      - name: shipping_service_name
+        data_type: varchar
+        description: ""
+
+      - name: id_shipping_service
+        data_type: varchar
+        description: ""
+
+  - name: dim_statusPromo
+    description: ""
+    columns:
+      - name: status_description
+        data_type: varchar
+        description: ""
+
+      - name: id_status
+        data_type: varchar
+        description: ""
+
+  - name: dim_users
+    description: ""
+    columns:
+      - name: user_id
+        data_type: varchar
+        description: ""
+
+      - name: updated_at
+        data_type: timestamp_tz
+        description: ""
+
+      - name: address_id
+        data_type: varchar
+        description: ""
+
+      - name: last_name
+        data_type: varchar
+        description: ""
+
+      - name: created_at
+        data_type: timestamp_tz
+        description: ""
+
+      - name: phone_number
+        data_type: varchar
+        description: ""
+
+      - name: total_orders
+        data_type: number
+        description: ""
+
+      - name: first_name
+        data_type: varchar
+        description: ""
+
+      - name: email
+        data_type: varchar
+        description: ""
+
+      - name: _fivetran_deleted
+        data_type: boolean
+        description: ""
+
+      - name: _fivetran_synced
+        data_type: timestamp_tz
+        description: ""
+
+  - name: dim_statusOrders
+    description: ""
+    columns:
+      - name: status_name
+        data_type: varchar
+        description: ""
+
+      - name: id_status
+        data_type: varchar
+        description: ""
+
+  - name: fct_orders
+    description: ""
+    columns:
+      - name: user_id
+        data_type: varchar
+        description: ""
+
+      - name: order_id
+        data_type: varchar
+        description: ""
+
+      - name: product_id
+        data_type: varchar
+        description: ""
+
+      - name: address_id
+        data_type: varchar
+        description: ""
+      
+      - name: created_at
+        data_type: timestamp_tz
+        description: ""
+
+      - name: promo_id
+        data_type: varchar
+        description: ""
+
+      - name: shipping_cost
+        data_type: float
+        description: ""
+
+      - name: order_cost
+        data_type: float
+        description: ""
+
+      - name: order_total
+        data_type: float
+        description: ""
+
+      - name: status
+        data_type: varchar
+        description: ""
+
+      - name: tracking_id
+        data_type: varchar
+        description: ""
+
+      - name: quantity
+        data_type: number
+        description: ""
+
+      
