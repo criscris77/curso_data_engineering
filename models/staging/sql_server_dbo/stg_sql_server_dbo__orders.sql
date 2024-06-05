@@ -16,7 +16,7 @@ renamed as (
         end as shipping_service_id,
         shipping_cost,
         address_id,
-        created_at,
+        CONVERT_TIMEZONE('UTC',TO_TIMESTAMP_TZ(created_at) )as created_at,
         case 
             when promo_id ='' then md5('no promo')
             else md5(promo_id)
@@ -25,7 +25,7 @@ renamed as (
         order_cost,
         user_id,
         order_total,
-        delivered_at,
+        CONVERT_TIMEZONE('UTC',TO_TIMESTAMP_TZ(delivered_at) )as delivered_at,
         tracking_id,
         status,
         _fivetran_synced

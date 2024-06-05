@@ -14,7 +14,7 @@ select
     case 
     when status='inactive' then '0'
     when status='active' then '1'
-    end as status,
+    end as status_promo,
     _fivetran_deleted,
     _fivetran_synced
 from source

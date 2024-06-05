@@ -25,4 +25,11 @@ renamed as (
     INNER JOIN sourceB B ON A.order_id = B.order_id
 
 )
-SELECT * FROM renamed
+SELECT 
+*
+FROM renamed a
+inner join {{ ref('dim_promos') }} b
+on a.promo_id=b.id_promocion
+inner join {{ ref('dim_products') }} c
+on a.product_id=c.product_id
+
