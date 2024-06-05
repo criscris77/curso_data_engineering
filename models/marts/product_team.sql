@@ -19,7 +19,7 @@ renamed_casted AS (
         {%- if not loop.last %},{% endif -%}
         {% endfor %}
     FROM stg_events a 
-    inner join ALUMNO14DEV_SILVER_DB.DBT.STG_SQL_SERVER_DBO__USERS b
+    inner join ALUMNO14_DEV_SILVER_DB.DBT.STG_SQL_SERVER_DBO__USERS b
     on a.user_id = b.user_id
     GROUP BY 1,2,3,4,5
     )
