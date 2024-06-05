@@ -1,9 +1,10 @@
 version: 2
 
 sources:
+
   - name: sql_server_dbo
     description: ""
-    database: alumno14dev_bronze_db
+    database: "{{ env_var('DBT_ENVIRONMENTS') }}_BRONZE_DB"  # this is the name of our database
     schema: sql_server_dbo
     quoting:
       database: false

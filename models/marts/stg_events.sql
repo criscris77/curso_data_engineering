@@ -17,8 +17,8 @@ renamed_casted AS (
         ,min(a.created_at) as first_event
         ,max(a.created_at) as last_event
         ,DATEDIFF(minute,first_event,last_event) as sesion_time_minutes
-    FROM ALUMNO14DEV_SILVER_DB.DBT.STG_SQL_SERVER_DBO__events a
-    inner join ALUMNO14DEV_SILVER_DB.DBT.STG_SQL_SERVER_DBO__USERS b
+    FROM ALUMNO14_DEV_SILVER_DB.DBT.STG_SQL_SERVER_DBO__events a
+    inner join ALUMNO14_DEV_SILVER_DB.DBT.STG_SQL_SERVER_DBO__USERS b
     on a.user_id = b.user_id
     group by a.user_id,a.session_id,b.last_name,b.first_name,b.email
     
