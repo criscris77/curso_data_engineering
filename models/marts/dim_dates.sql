@@ -13,7 +13,7 @@ with date_spine as (
 )
 
 select
-    date_day as date,
+    CONVERT_TIMEZONE('UTC',TO_TIMESTAMP_TZ(date_day) )as date,
     extract(year from date_day) as year,
     extract(month from date_day) as month,
     extract(day from date_day) as day,
