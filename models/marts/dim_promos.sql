@@ -10,7 +10,9 @@ renamed as (
 
     select
         *
-    from source
+    from source A
+    inner join {{ ref('dim_statusPromo') }} b
+    on a.status_promo=b.id_status
 )
 
 select * from renamed
