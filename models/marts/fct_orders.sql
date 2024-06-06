@@ -26,28 +26,29 @@ renamed as (
 
 )
 SELECT 
-a.user_id,
 a.order_id,
 c.product_id,
 quantity ,
 price,
-quantity*price as total_idproducto,
-b.status_description,
+b.status_description as promocion,
 case 
     when status_description = 'inactive' then 0
     else discount_dollars
-end as discount_dollars_active,
+end as descuento_activo,
 discount_dollars as descuento_original,
 ROUND(shipping_cost / COUNT(*) OVER (PARTITION BY a.order_id),2) as shipping_cost_dividido,
-shipping_cost_antiguo,
-order_cost as order_cost_antiguo,
-SUM(quantity * price) OVER (PARTITION BY a.order_id) - 
+shipping_cost as shipping_cost_antiguo,
+quantity*price as suma_linea,
+quantity*price+shipping_cost_dividido as linea_producto,
+--total del pedido menos el descuento si está activo mas el shipping cost
+ROUND(SUM(suma_linea) OVER (PARTITION BY a.order_id) - 
     case 
         when b.status_description = 'inactive' then 0
         else discount_dollars
-    end as order_cost,
-ROUND(order_total / COUNT(*) OVER (PARTITION BY a.order_id),2) as order_total_divido,
-SUM(order_total) OVER (PARTITION BY a.order_id) / COUNT(*) OVER (PARTITION BY a.order_id) as suma,
+    end +MAX(shipping_cost) OVER (PARTITION BY a.order_id),2) --He usado el maximo para sumar solo una vez 
+    as order_cost_pedido,
+order_cost as order_cost_antiguo,
+ROUND(order_cost_pedido / COUNT(*) OVER (PARTITION BY a.order_id),2) as order_total_divido,
 
 
 FROM renamed a
