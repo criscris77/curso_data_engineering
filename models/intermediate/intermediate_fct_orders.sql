@@ -26,6 +26,7 @@ renamed as (
 
 )
 SELECT 
+a.user_id,
 a.order_id,
 c.product_id,
 quantity ,
